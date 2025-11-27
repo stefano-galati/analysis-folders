@@ -9,7 +9,6 @@ fi
 folder=$1
 stat=$2
 
-
 find $folder -type f -name "stats.txt" > tmp.txt
 
 while IFS= read -r line; do
@@ -19,7 +18,7 @@ while IFS= read -r line; do
 	
 	# MERGED SIM RES CHANGED INTO SIMRES
 	# find line in simRes.txt containing simId
-	result=$(cat "$folder/simRes.txt" | grep "$simId" | awk '{print $2}')
+	result=$(cat "$folder/simRes.txt" | grep "$simId" | cut -d ">" -f 2)
 	
 	if [[ $result == *"DUE (infinite loop)"* ]]; then
 		result="DUE(inf)"
