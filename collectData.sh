@@ -8,6 +8,7 @@ fi
 folder="$1"
 
 #rm logs/*
+rm results/*.txt
 
-sbatch jobCollectData.sbatch $folder
+./jobCollectData.sh $folder
 

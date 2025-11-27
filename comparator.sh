@@ -17,8 +17,9 @@ while IFS= read -r line; do
 	simId=$(echo "$line" | awk -F'/' '{print $(NF-1)}')
 	#echo "$simId"
 	
-	# find line in mergedSimRes.txt containing simId
-	result=$(cat "$folder/mergedSimRes.txt" | grep "$simId" | cut -d ">" -f 2)
+	# MERGED SIM RES CHANGED INTO SIMRES
+	# find line in simRes.txt containing simId
+	result=$(cat "$folder/simRes.txt" | grep "$simId" | awk '{print $2}')
 	
 	if [[ $result == *"DUE (infinite loop)"* ]]; then
 		result="DUE(inf)"
