@@ -18,8 +18,18 @@ while IFS= read -r line; do
 	#echo "$simId"
 	
 	# find line in mergedSimRes.txt containing simId
-	result=$(cat "$folder/mergedSimRes.txt" | grep "$simId" | awk '{print $2}')
+	result=$(cat "$folder/mergedSimRes.txt" | grep "$simId" | cut -d ">" -f 2)
 	
+	if [[ $result == *"DUE (infinite loop)"* ]]; then
+		result="DUE(inf)"
+	elif [[ $result == *"DUE (segmentation fault)"* ]]; then
+                result="DUE(seg)"
+        elif [[ $result == *"SDC"* ]]; then
+                result="SDC"
+        elif [[ $result == *"masked"* ]]; then
+                result="masked"
+	fi
+
 	# find line in stats.txt containing the wanted metric
 	statsLine=$(cat $line | grep $stat)
 	statValue=$(echo $statsLine | awk '{print $2}')
