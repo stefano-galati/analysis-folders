@@ -4,7 +4,7 @@
 #SBATCH --mail-type=NONE
 #SBATCH --mail-user=s342146@studenti.polito.it
 #SBATCH --partition=cpu_sapphire
-#SBATCH --time=01:30:00
+#SBATCH --time=03:30:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --output=logs/simulate.log

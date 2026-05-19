@@ -1,6 +1,6 @@
 #!/bin/bash
 
-let delta=2
+let delta=10
 
 if [[ $# -eq 1 ]]; then
 	let delta=$1

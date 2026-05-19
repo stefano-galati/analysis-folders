@@ -1,3 +1,4 @@
-logs/*.txt
+logs/*.log
 results/*.txt
 matrixIntMult
+tmp.txt
